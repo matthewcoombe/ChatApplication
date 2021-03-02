@@ -41,7 +41,7 @@ public class Server{
       System.out.println("New participant: \""+name+"\"\n\t Coming from: "+client.getInetAddress().getHostAddress());
       User user = new User(client, name);
       this.clientList.add(user); // add the new client to the list of clientList
-      user.getOutStream().println("Welcom to the chat room "+user.toString()+" this service is hosted at UCT, brought to you by Kagiso, Mathew and Paul"); // provide the user with feedback
+      user.getOutStream().println("Welcome to the chat room "+user.toString()+"!"); // provide the user with feedback
       new Thread(new HandleClient(this, user)).start(); // Create a thread to listen for messages from the user
     }
   }

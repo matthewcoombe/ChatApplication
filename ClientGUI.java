@@ -72,11 +72,11 @@ public class ClientGUI extends Thread{
       jtextFieldInputScrollPane.setBounds(25,375,600,50);
       // New GUI panes, fields and buttons
       final JButton buttonSend = new JButton("Send");
-      buttonSend.setBounds(25,450,100,35);
+      buttonSend.setBounds(25,450,200,35);
       buttonSend.setFont(font);
 
       final JButton buttonExit = new JButton("Leave chat room?");
-      buttonExit.setBounds(25,500,100,35);
+      buttonExit.setBounds(25,500,200,35);
       buttonExit.setFont(font);
       // Add a listener to the input text field, whenever the "enter/return" key is pressed call the sendMessage method to send the message otherwise continue reading the text
       jtextFieldInput.addKeyListener(new KeyAdapter(){
@@ -120,16 +120,16 @@ public class ClientGUI extends Thread{
         jFrame.setVisible(true);
 
         // Information for the User
-        appendToPane(jtextPaneChat, "Welcome to the Chat room hosted by Kagiso, Mathew and Paul");
+        appendToPane(jtextPaneChat, "Welcome to the chat room! Hosted by Kagiso, Matthew and Paul.");
         buttonConnect.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent actionEvent){
             try{
               name = textName.getText();
               int port = 12001;
               serverName = textAddress.getText();
-              appendToPane(jtextPaneChat, "Connecting");
+              appendToPane(jtextPaneChat, "Connecting...");
               server = new Socket(serverName, port);
-              appendToPane(jtextPaneChat,"Connected to chat room at "+ server.getRemoteSocketAddress()+" from "+serverName+" from port "+ port);
+              appendToPane(jtextPaneChat,"Connected to chat room at "+ server.getRemoteSocketAddress()+" from "+serverName+" from port "+ port + ".");
 
               // Handle input from the user
               input = new BufferedReader(new InputStreamReader(server.getInputStream()));
